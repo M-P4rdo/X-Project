@@ -1,0 +1,22 @@
+ app/
+├── domain/                  # Capa del Dominio (entidad, lógica del negocio, interfaces)
+│   ├── entities.py            # Entidades del dominio (por ejemplo, User, Product, etc.)
+│   ├── ports/                 # Interfaces para interactuar con la app (in/out)
+│   │   ├── repository.py      # Interfaz del repositorio (Output Port)
+│   │   └── service.py         # Opcional: interfaz de servicios de dominio
+│   └── use_cases/            # Casos de uso que orquestan lógica del negocio
+│       └── crud_operations.py
+│
+├── infrastructure/         # Adaptadores de infraestructura (DB, HTTP, etc.)
+│   ├── db/                    
+│   │   ├── models.py          # Modelos ORM (SQLAlchemy o Pydantic si Mongo)
+│   │   ├── repository.py      # Implementación de repository port
+│   │   └── database.py        # Conexión y sesión con la BD
+│   └── fastapi/               # Adaptador de entrada: FastAPI (controladores, routers)
+│       ├── main.py            # Punto de entrada de la aplicación
+│       ├── routes.py          # Endpoints HTTP
+│       └── dependencies.py    # Inyección de dependencias
+│
+├── config/                 # Configuración (entorno, variables, etc.)
+    └── settings.py
+
